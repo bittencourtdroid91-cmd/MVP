@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Noto Serif", Georgia, serif;
+
+  --color-primary: #ff8aa3;
+  --color-primary-container: #f751a1;
+  --color-primary-dim: #cc3d7a;
+  --color-on-primary: #3a0020;
+  --color-on-primary-container: #ffffff;
+
+  --color-secondary: #00f1fe;
+  --color-secondary-container: #005f66;
+  --color-on-secondary: #002426;
+  --color-on-secondary-container: #b2fcff;
+
+  --color-tertiary: #b09eff;
+  --color-tertiary-container: #4a3d9e;
+  --color-on-tertiary: #1a0060;
+
+  --color-background: #0e0e0f;
+  --color-surface: #0e0e0f;
+  --color-surface-container-low: #141416;
+  --color-surface-container: #1a1a1d;
+  --color-surface-container-high: #222226;
+  --color-surface-container-highest: #2c2c31;
+
+  --color-on-surface: #f0ecf4;
+  --color-on-surface-variant: #9490a0;
+  --color-outline-variant: rgba(255,255,255,0.07);
+}
+
+@layer base {
+  body {
+    @apply bg-background text-on-surface;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+.font-serif { font-family: var(--font-serif) !important; }
+
+.glass-card {
+  background: rgba(26, 26, 29, 0.55);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+.glow-primary { box-shadow: 0 0 48px 8px rgba(255,138,163,0.10); }
+.glow-secondary { box-shadow: 0 0 48px 8px rgba(0,241,254,0.10); }
+.glow-primary-strong { box-shadow: 0 0 24px 4px rgba(255,138,163,0.28); }
+.glow-secondary-strong { box-shadow: 0 0 24px 4px rgba(0,241,254,0.28); }
+.glow-violet { box-shadow: 0 0 24px 4px rgba(176,158,255,0.20); }
+
+.text-gradient-primary {
+  background: linear-gradient(135deg,#ff8aa3,#f751a1);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+}
+.text-gradient-secondary {
+  background: linear-gradient(135deg,#00f1fe,#00b8c4);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+}
+.text-gradient-violet {
+  background: linear-gradient(135deg,#b09eff,#7c6cff);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+}
+
+.liquid-bar {
+  background: linear-gradient(90deg,#00f1fe,#00b8c4);
+  border-radius:9999px; position:relative; overflow:hidden;
+}
+.liquid-bar::after {
+  content:''; position:absolute; top:0; right:0; bottom:0; width:40%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.20));
+  animation:shimmer 2.4s ease-in-out infinite;
+}
+.primary-bar {
+  background:linear-gradient(90deg,#f751a1,#ff8aa3);
+  border-radius:9999px;
+}
+@keyframes shimmer { 0%,100%{opacity:.4;transform:translateX(0)} 50%{opacity:1;transform:translateX(8px)} }
+
+.nav-pill {
+  background:rgba(18,18,20,0.88);
+  backdrop-filter:blur(32px); -webkit-backdrop-filter:blur(32px);
+  border:1px solid rgba(255,255,255,0.06);
+}
+
+.particle-bg {
+  background:
+    radial-gradient(ellipse at 15% 35%, rgba(247,81,161,0.14) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 65%, rgba(0,241,254,0.09) 0%, transparent 55%),
+    radial-gradient(ellipse at 50% 100%, rgba(176,158,255,0.07) 0%, transparent 50%);
+}
+
+.ghost-border { border:1px solid rgba(255,255,255,0.08); }
+
+.no-scrollbar::-webkit-scrollbar{display:none}
+.no-scrollbar{-ms-overflow-style:none;scrollbar-width:none}
+
+.badge-bronze{color:#cd7f32}
+.badge-silver{color:#a8a9ad}
+.badge-gold{color:#ffd700}
+.badge-diamond{color:#00f1fe}
+
+@keyframes pulse-ring {
+  0%{transform:scale(.85);opacity:.7}
+  100%{transform:scale(1.8);opacity:0}
+}
+.pulse-ring{animation:pulse-ring 2.2s ease-out infinite}
+
+@keyframes float-up {
+  from{opacity:0;transform:translateY(18px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.float-up{animation:float-up .55s ease forwards}
+.float-up-d1{animation:float-up .55s .12s ease forwards;opacity:0}
+.float-up-d2{animation:float-up .55s .24s ease forwards;opacity:0}
+.float-up-d3{animation:float-up .55s .38s ease forwards;opacity:0}
+.float-up-d4{animation:float-up .55s .52s ease forwards;opacity:0}
+
+@keyframes loading-dot {
+  0%,80%,100%{opacity:.2;transform:scale(.8)}
+  40%{opacity:1;transform:scale(1)}
+}

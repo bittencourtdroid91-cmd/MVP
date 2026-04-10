@@ -1,0 +1,5 @@
+{
+  "name": "Vitalis - Protocolo Maelly",
+  "description": "Aplicativo single-user de acompanhamento de protocolo de saude para Hashimoto + Wegovy.",
+  "requestFramePermissions": ["camera", "microphone"]
+}
