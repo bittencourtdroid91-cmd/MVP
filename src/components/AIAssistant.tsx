@@ -43,7 +43,7 @@ export default function AIAssistant({ protocol, recentLogs, inlineButton }: AIAs
         body: JSON.stringify({ message: userMessage, protocol, recentLogs }),
       });
       const data = await response.json();
-      setMessages((prev) => [...prev, { role: 'bot', content: data.response || 'Não consegui processar. Tente novamente.' }]);
+      setMessages((prev) => [...prev, { role: 'bot', content: data.text || data.response || 'Não consegui processar. Tente novamente.' }]);
     } catch {
       setMessages((prev) => [...prev, { role: 'bot', content: 'Erro de conexão. Verifique sua rede e tente novamente.' }]);
     } finally {

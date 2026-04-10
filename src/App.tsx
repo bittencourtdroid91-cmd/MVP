@@ -203,6 +203,7 @@ export default function App() {
           monthlyBadge={monthlyBadge}
           weeklyLogs={weeklyLogs}
           onAddWater={(liters) => updateTodayLog((log) => ({ ...log, hydrationLiters: Math.max(0, Number((log.hydrationLiters + liters).toFixed(2))) }))}
+          onChecklistToggle={(id, checked) => updateTodayLog((log) => ({ ...log, checklist: { ...log.checklist, [id]: checked } }))}
         />
       );
       case 'meal': return (
